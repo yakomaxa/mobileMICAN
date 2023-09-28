@@ -485,15 +485,15 @@
 	    await pyodide.runPythonAsync(`
 
 	    class SelfProxy:
-	    def __init__(self, proxied, _self):
-	    self._self = _self
-	    self.proxied = proxied
+	     def __init__(self, proxied, _self):
+	      self._self = _self
+	      self.proxied = proxied
 
-	    def __getattr__(self, key):
-	    v = getattr(self.proxied, key)
-	    def wrapper(*a, **k):
-	    k['_self'] = self._self
-	    return v(*a, **k)
+	     def __getattr__(self, key):
+	      v = getattr(self.proxied, key)
+	       def wrapper(*a, **k):
+	        k['_self'] = self._self
+	      return v(*a, **k)
 	    return wrapper
 
 
