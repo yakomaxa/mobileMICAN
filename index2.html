@@ -532,9 +532,9 @@
 	    
 	    await pyodide.runPythonAsync(`
 	    _p.cmd.delete("all")
-	    _p.cmd.load(fname1)
-	    _p.cmd.load(fname2)
-	    _p.cmd.load(fname3)
+	    _p.cmd.load("/output_MODEL1.cif")
+	    _p.cmd.load("/output_MODEL2.cif")
+	    _p.cmd.load("/output.pml")
 	    _p.cmd.hide()
 	    _p.cmd.set("label_font_id", 10)
 	    _p.cmd.set("label_size", 30)
