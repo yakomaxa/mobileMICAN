@@ -463,9 +463,6 @@
 	  <script type="module" src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
 	  <script src="https://cdn.jsdelivr.net/npm/pako/dist/pako.min.js"></script>
 	  <script>
-	    let pymol_filename1="align1.cif";
-	    let pymol_filename2="align2.cif";
-	    let pymol_filename3="align.pml";
 	    const canvas = document.getElementById('canvas');
 	    const rect = canvas.getBoundingClientRect();
 	    const OriginX = parseInt(rect.left);
@@ -523,6 +520,8 @@
 
 	    console.log(data3)
 	    console.log("testing the path")
+	    await pyodide.FS.writeFile("tmp.cif", pdb1);
+	    await pyodide.globals.set("fname11","tmp.cif");
 //	    await pyodide.FS.writeFile(pymol_filename1, data1);
 //	    await pyodide.globals.set("fname1",pymol_filename1);
 //	    await pyodide.FS.writeFile(pymol_filename2, data2);
@@ -533,9 +532,7 @@
 	    
 	    await pyodide.runPythonAsync(`
 	    _p.cmd.delete("all")
-	    _p.cmd.load("1mbn.cif")
-	    _p.cmd.load("4hhb.cif")
-//	    _p.cmd.load("./output.pml")
+	    _p.cmd.load(fname11)
 	    _p.cmd.hide()
 	    _p.cmd.set("label_font_id", 10)
 	    _p.cmd.set("label_size", 30)
