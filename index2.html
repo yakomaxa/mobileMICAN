@@ -445,7 +445,7 @@
       setTimeout(async () => {
       try {
       await main(pdb1, filename1, pdb2, filename2, mode);
-      await launchViewer(data);
+//      await launchViewer(data);
       await stopExecution();
       document.getElementById('downloadBtn').style.display = 'block';
       document.getElementById('my-button').style.display = 'block';
@@ -459,7 +459,7 @@
        
     </script>
     <canvas id="canvas" width="1024" height="600"></canvas>
-    <center><button id="my-button">Press here to launch PyMOL after selecting PDB file</button></center>
+    <center><button id="my-button2">Press here to launch PyMOL after selecting PDB file</button></center>
 	  <p>
 	  <script type="module" src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
 	  <script src="https://cdn.jsdelivr.net/npm/pako/dist/pako.min.js"></script>
@@ -517,7 +517,7 @@
 	    `
 	    );
 
-	    const myButton2 = document.getElementById('my-button');
+	    const myButton2 = document.getElementById('my-button2');
 	    myButton2.addEventListener('click', async function(){
 	    setTimeout(async () => {
 	    try {
