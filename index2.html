@@ -464,9 +464,9 @@
 	  <script type="module" src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
 	  <script src="https://cdn.jsdelivr.net/npm/pako/dist/pako.min.js"></script>
 	  <script>
-	    let pymol_filename1="output_MODEL1.cif";
-	    let pymol_filename2="output_MODEL2.cif";
-	    let pymol_filename3="output.pml";
+	    let pymol_filename1="align1.cif";
+	    let pymol_filename2="align2.cif";
+	    let pymol_filename3="align.pml";
 	    const canvas = document.getElementById('canvas');
 	    const rect = canvas.getBoundingClientRect();
 	    const OriginX = parseInt(rect.left);
@@ -522,6 +522,7 @@
 	    setTimeout(async () => {
 	    try {
 
+	    console.log(data3)
 	    await pyodide.FS.writeFile(pymol_filename1, data1);
 	    await pyodide.globals.set("fname1",pymol_filename1);
 	    await pyodide.FS.writeFile(pymol_filename2, data2);
@@ -529,9 +530,6 @@
 	    await pyodide.FS.writeFile(pymol_filename3, data3);
 	    await pyodide.globals.set("fname3",pymol_filename3);
 	    	    	    
-	    await pyodide.globals.set("fname1",pymol_filename1);
-	    await pyodide.globals.set("fname2",pymol_filename2);
-	    await pyodide.globals.set("fname3",pymol_filename3);
 	    
 	    await pyodide.runPythonAsync(`
 	    _p.cmd.delete("all")
