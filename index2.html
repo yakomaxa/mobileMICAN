@@ -493,8 +493,8 @@
 	      v = getattr(self.proxied, key)
 	       def wrapper(*a, **k):
 	        k['_self'] = self._self
-	      return v(*a, **k)
-	    return wrapper
+	        return v(*a, **k)
+	      return wrapper
 
 
 	    import pymol2 as p2
