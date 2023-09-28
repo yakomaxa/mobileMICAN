@@ -491,9 +491,9 @@
 
 	     def __getattr__(self, key):
 	      v = getattr(self.proxied, key)
-	       def wrapper(*a, **k):
-	        k['_self'] = self._self
-	        return v(*a, **k)
+	      def wrapper(*a, **k):
+	       k['_self'] = self._self
+	       return v(*a, **k)
 	      return wrapper
 
 
