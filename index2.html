@@ -890,13 +890,31 @@
 	      }
 
 
-	  </script>
-	  <center> <a href="https://github.com/yakomaxa/PyMOL-Wasm"> GitHub repository for this project (binary and javascript only at this moment) </a>  </center>
-      </body>
-    </html>
-    
-
+	  </script>  
     <script>
-      
+	const spinner = document.getElementById('spinner-container');
+	const status = document.getElementById('status');
+
+	function loadingExecution() {
+	spinner.style.display = 'none';
+	status.textContent = 'Loading complete. Awaiting MICAN execution.';
+	}
+
+	function startExecution() {
+	document.getElementById('my-button').style.display = 'none';
+	spinner.style.display = 'block';
+	status.textContent = 'MICAN execution in progress...';
+	}
+
+	function stopExecution() {
+	spinner.style.display = 'none';
+	status.textContent = 'Execution complete. Awaiting next run.';
+	}
+
+	function errorExecution() {
+	spinner.style.display = 'none';
+	status.textContent = 'Error occurred. Awaiting next run.';
+	}
+
     </script>  
 </html>
