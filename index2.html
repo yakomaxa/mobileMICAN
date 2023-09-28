@@ -487,15 +487,6 @@
 	    await pyodide.globals.set("gui_width",gui_width);
 	    await pyodide.globals.set("height",height);
 
-	    await pyodide.FS.writeFile(pymol_filename1, data1);
-	    await pyodide.globals.set("fname1",pymol_filename1);
-
-	    await pyodide.FS.writeFile(pymol_filename2, data2);
-	    await pyodide.globals.set("fname2",pymol_filename2);
-	    
-	    await pyodide.FS.writeFile(pymol_filename3, data3);
-	    await pyodide.globals.set("fname3",pymol_filename3);
-	    
 	    await pyodide.runPythonAsync(`
 
 	    class SelfProxy:
@@ -530,8 +521,14 @@
 	    myButton.addEventListener('click', async function(){
 	    setTimeout(async () => {
 	    try {
-	    
-	    
+
+	    await pyodide.FS.writeFile(pymol_filename1, data1);
+	    await pyodide.globals.set("fname1",pymol_filename1);
+	    await pyodide.FS.writeFile(pymol_filename2, data2);
+	    await pyodide.globals.set("fname2",pymol_filename2);	    
+	    await pyodide.FS.writeFile(pymol_filename3, data3);
+	    await pyodide.globals.set("fname3",pymol_filename3);
+	    	    	    
 	    await pyodide.globals.set("fname1",pymol_filename1);
 	    await pyodide.globals.set("fname2",pymol_filename2);
 	    await pyodide.globals.set("fname3",pymol_filename3);
