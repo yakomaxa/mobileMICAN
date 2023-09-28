@@ -432,7 +432,7 @@
       data1 = await pyodide.FS.readFile('/output_MODEL1.cif',{ encoding: 'utf8' });
       data2 = await pyodide.FS.readFile('/output_MODEL2.cif',{ encoding: 'utf8' });
       data3 = await pyodide.FS.readFile('/output.pml',{ encoding: 'utf8' });
-      console.log(data3)
+//      console.log(data3)
      
       }
 
@@ -522,12 +522,13 @@
 	    try {
 
 	    console.log(data3)
-	    await pyodide.FS.writeFile(pymol_filename1, data1);
-	    await pyodide.globals.set("fname1",pymol_filename1);
-	    await pyodide.FS.writeFile(pymol_filename2, data2);
-	    await pyodide.globals.set("fname2",pymol_filename2);	    
-	    await pyodide.FS.writeFile(pymol_filename3, data3);
-	    await pyodide.globals.set("fname3",pymol_filename3);
+	    console.log("testing the path")
+//	    await pyodide.FS.writeFile(pymol_filename1, data1);
+//	    await pyodide.globals.set("fname1",pymol_filename1);
+//	    await pyodide.FS.writeFile(pymol_filename2, data2);
+//	    await pyodide.globals.set("fname2",pymol_filename2);	    
+//	    await pyodide.FS.writeFile(pymol_filename3, data3);
+//	    await pyodide.globals.set("fname3",pymol_filename3);
 	    	    	    
 	    
 	    await pyodide.runPythonAsync(`
