@@ -379,7 +379,7 @@
       let data1=""
       let data2=""
       let data3=""
-      pyodide = await loadPyodide();
+      var pyodide = await loadPyodide();
       await pyodide.loadPackage("https://yakomaxa.github.io/mobileMICAN/MICAN-1.0-cp39-cp39-emscripten_3_1_31_wasm32.whl");
       await pyodide.loadPackage("https://yakomaxa.github.io/PyMOL-Wasm/pymol-2.6.0a0-cp39-cp39-emscripten_3_1_46_wasm32.whl");
       await loadingExecution();
