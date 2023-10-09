@@ -477,24 +477,23 @@
 	    `)
 
       const myButton2 = document.getElementById('my-button2');
-      myButton2.addEventListener('click', async function(){
-	  
+      myButton2.addEventListener('click', async function(){	  
 	  console.log("HOGEHOGE");
 	  console.log(data1)
 	  console.log(data2)
 	  console.log(data3)
 	  setTimeout(async () => {		 
-   		  let pymol_filename1="output_MODEL1.cif"
-      		  let pymol_filename2="output_MODEL2.cif"
-		  let pymol_filename3="output.pml"
-		  
-		  await pyodide.FS.writeFile(pymol_filename1, data1);
-		  await pyodide.globals.set("fname1",pymol_filename1);
-		  await pyodide.FS.writeFile(pymol_filename2, data2);
-		  await pyodide.globals.set("fname2",pymol_filename2);	    
-		  await pyodide.FS.writeFile(pymol_filename3, data3);
-		  await pyodide.globals.set("fname3",pymol_filename3);
-		  await pyodide.runPythonAsync(`
+      let pymol_filename1="output_MODEL1.cif"
+      let pymol_filename2="output_MODEL2.cif"
+      let pymol_filename3="output.pml"
+      
+      await pyodide.FS.writeFile(pymol_filename1, data1);
+      await pyodide.globals.set("fname1",pymol_filename1);
+      await pyodide.FS.writeFile(pymol_filename2, data2);
+      await pyodide.globals.set("fname2",pymol_filename2);	    
+      await pyodide.FS.writeFile(pymol_filename3, data3);
+      await pyodide.globals.set("fname3",pymol_filename3);
+      await pyodide.runPythonAsync(`
 
 	    class SelfProxy:
 	     def __init__(self, proxied, _self):
@@ -521,34 +520,32 @@
 	    );
 	    	    	    
 	    
-	    await pyodide.runPythonAsync(`
-	    _p.cmd.ls()
-	    _p.cmd.delete("all")
-	    _p.cmd.load(fname1)
-            _p.cmd.load(fname2)
-            _p.cmd.load(fname3)
-	    _p.cmd.hide()
-	    _p.cmd.set("label_font_id", 10)
-	    _p.cmd.set("label_size", 30)
-	    _p.cmd.set("sphere_mode", 0)
-	    _p.cmd.set("render_as_cylinders", "off")
-	    _p.cmd.set("dot_density", 25)
-	    _p.cmd.set("dot_lighting","off")
-	    _p.cmd.set("line_width",5)
-	    _p.cmd.set("trilines","on")
-	    _p.cmd.set("dash_as_cylinders","on")
-	    #_p.cmd.set("use_shaders")
-	    #_p.cmd.show("everythin","all")
-	    _p.cmd.show("cartoon")
-	    _p.cmd.show("stick","het")
-	    _p.cmd.set("internal_gui",1)
-	    _p.cmd.set("internal_gui_width",gui_width)
-	    _p.cmd.set("internal_feedback", 0)
-	    _p.cmd.set("internal_gui_control_size", 30)
-	    _p.cmd.bg_color("black")
-	    _p._cmd.glViewport(0, 0, width,height)
-	    _p.cmd.viewport(width-gui_width,height)
-	    _p.draw()`
+      await pyodide.runPythonAsync(`
+      _p.cmd.ls()
+      _p.cmd.delete("all")
+      _p.cmd.load(fname1)
+      _p.cmd.load(fname2)
+      _p.cmd.load(fname3)
+      _p.cmd.hide()
+      _p.cmd.set("label_font_id", 10)
+      _p.cmd.set("label_size", 30)
+      _p.cmd.set("sphere_mode", 0)
+      _p.cmd.set("render_as_cylinders", "off")
+      _p.cmd.set("dot_density", 25)
+      _p.cmd.set("dot_lighting","off")
+      _p.cmd.set("line_width",5)
+      _p.cmd.set("trilines","on")
+      _p.cmd.set("dash_as_cylinders","on")
+      _p.cmd.show("cartoon")
+      _p.cmd.show("stick","het")
+      _p.cmd.set("internal_gui",1)
+      _p.cmd.set("internal_gui_width",gui_width)
+      _p.cmd.set("internal_feedback", 0)
+      _p.cmd.set("internal_gui_control_size", 30)
+      _p.cmd.bg_color("black")
+      _p._cmd.glViewport(0, 0, width,height)
+      _p.cmd.viewport(width-gui_width,height)
+      _p.draw()`
 	    );
 	    loaded=true;
 	    }, 100);
