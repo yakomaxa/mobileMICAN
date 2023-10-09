@@ -496,7 +496,7 @@
 	    setTimeout(async () => {
 	    try {
 
-	    //console.log(data3)
+	    console.log(pdb1)
 	    console.log("testing the path")
 	    await pyodide.FS.writeFile("tmp.cif", pdb1);
 	    await pyodide.globals.set("fname11","tmp.cif");
