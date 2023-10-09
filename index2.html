@@ -380,7 +380,6 @@
       let data2=""
       let data3=""
       let pyodide = await loadPyodide();
-      ///import { loadPyodide} from "./pyodide/pyodide.mjs";      
       await pyodide.loadPackage("https://yakomaxa.github.io/mobileMICAN/MICAN-1.0-cp39-cp39-emscripten_3_1_31_wasm32.whl");
       await pyodide.loadPackage("https://yakomaxa.github.io/PyMOL-Wasm/pymol-2.6.0a0-cp39-cp39-emscripten_3_1_46_wasm32.whl");
       await loadingExecution();
@@ -461,8 +460,6 @@
     <canvas id="canvas" width="1024" height="600"></canvas>
     <center><button id="my-button2">Press here to launch PyMOL after selecting PDB file</button></center>
 	  <p>
-	  <script type="module" src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
-	  <script src="https://cdn.jsdelivr.net/npm/pako/dist/pako.min.js"></script>
 	  <script>
 	    const canvas = document.getElementById('canvas');
 	    const rect = canvas.getBoundingClientRect();
@@ -471,7 +468,6 @@
 	  </script>
 	  <script type="module">
 	    const cv = document.getElementById("canvas");	
-	    //let pyodide = await loadPyodide();
 	    let loaded = false;
 	    // Run PyMOL code
 	    const width = 1024;
@@ -487,6 +483,7 @@
 	    import pymol2 as p2
 	    _p = p2.PyMOL()
 	    _p.start()
+	    _p.cmd.ls()
 	    `)
 
 	    const myButton2 = document.getElementById('my-button2');
@@ -496,12 +493,6 @@
 	    setTimeout(async () => {
 	try {
 
-	  //console.log(data1)
-         //	console.log(data2)
-        //	console.log(data3)
-	    console.log("testing the path")
-	    //await pyodide.FS.writeFile("tmp.cif", pdb1);
-	    //await pyodide.globals.set("fname11","tmp.cif");
    	    let pymol_filename1="output_MODEL1.cif"
       	    let pymol_filename2="output_MODEL2.cif"
 	    let pymol_filename3="output.pml"
