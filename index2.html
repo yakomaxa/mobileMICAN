@@ -483,7 +483,7 @@
 	    await pyodide.globals.set("gui_width",gui_width);
 	    await pyodide.globals.set("height",height);
 
-	   await pyodide.runPythonAsync(`
+	    await pyodide.runPythonAsync(`
 	    import pymol2 as p2
 	    _p = p2.PyMOL()
 	    _p.start()
@@ -491,6 +491,8 @@
 
 	    const myButton2 = document.getElementById('my-button2');
 	    myButton2.addEventListener('click', async function(){
+
+	    console.log("HOGEHOGE");
 	    setTimeout(async () => {
 	    try {
 
