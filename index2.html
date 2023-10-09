@@ -532,6 +532,7 @@
 	    	    	    
 	    
 	    await pyodide.runPythonAsync(`
+	    _p.cmd.ls()
 	    _p.cmd.delete("all")
 	    _p.cmd.load(fname11)
 	    _p.cmd.hide()
