@@ -483,6 +483,11 @@
 	    await pyodide.globals.set("gui_width",gui_width);
 	    await pyodide.globals.set("height",height);
 
+	   await pyodide.runPythonAsync(`
+	    import pymol2 as p2
+	    _p = p2.PyMOL()
+	    `)
+
 	    const myButton2 = document.getElementById('my-button2');
 	    myButton2.addEventListener('click', async function(){
 	    setTimeout(async () => {
@@ -498,8 +503,7 @@
 //	    await pyodide.globals.set("fname2",pymol_filename2);	    
 //	    await pyodide.FS.writeFile(pymol_filename3, data3);
 	    //	    await pyodide.globals.set("fname3",pymol_filename3);
-
-	    	    await pyodide.runPythonAsync(`
+	   await pyodide.runPythonAsync(`
 
 	    class SelfProxy:
 	     def __init__(self, proxied, _self):
@@ -514,8 +518,6 @@
 	      return wrapper
 
 
-	    import pymol2 as p2
-	    _p = p2.PyMOL()
 	    _p.start()
 
 	    import pymol.util
