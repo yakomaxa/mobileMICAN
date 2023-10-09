@@ -484,19 +484,23 @@
 	    import pymol2 as p2
 	    _p = p2.PyMOL()
 	    _p.start()
-	    _p.cmd.ls()
 	    `)
 
 	    const myButton2 = document.getElementById('my-button2');
 	    myButton2.addEventListener('click', async function(){
 
 	    console.log("HOGEHOGE");
+	    console.log(data1)
+	    console.log(data2)
+	    console.log(data3)
 	    setTimeout(async () => {
       	    try {
 
    	    let pymol_filename1="output_MODEL1.cif"
       	    let pymol_filename2="output_MODEL2.cif"
 	    let pymol_filename3="output.pml"
+       
+
 	    await pyodide.FS.writeFile(pymol_filename1, data1);
 	    await pyodide.globals.set("fname1",pymol_filename1);
 	    await pyodide.FS.writeFile(pymol_filename2, data2);
