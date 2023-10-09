@@ -376,9 +376,9 @@
       <center><button id="downloadBtn" style="display: none;">Download</button><center>
 	  <p>
     <script type="module">
-      let data1=""
-      let data2=""
-      let data3=""
+      export let data1=""
+      export let data2=""
+      export let data3=""
       var pyodide = await loadPyodide();
       await pyodide.loadPackage("https://yakomaxa.github.io/mobileMICAN/MICAN-1.0-cp39-cp39-emscripten_3_1_31_wasm32.whl");
        await loadingExecution();
