@@ -483,9 +483,7 @@
 	  console.log(data1)
 	  console.log(data2)
 	  console.log(data3)
-	  setTimeout(async () => {
-      	      try {
-		  
+	  setTimeout(async () => {		 
    		  let pymol_filename1="output_MODEL1.cif"
       		  let pymol_filename2="output_MODEL2.cif"
 		  let pymol_filename3="output.pml"
@@ -553,11 +551,6 @@
 	    _p.draw()`
 	    );
 	    loaded=true;
-
-	    } catch (error) {
-
-	     console.log("ERROR")
-	    }
 	    }, 100);
 	    })
 
