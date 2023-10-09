@@ -494,12 +494,17 @@
 
 	    console.log("HOGEHOGE");
 	    setTimeout(async () => {
-	    try {
+	try {
 
-	    console.log(pdb1)
+	console.log(data1)
+	console.log(data2)
+	console.log(data3)
 	    console.log("testing the path")
 	    //await pyodide.FS.writeFile("tmp.cif", pdb1);
 	    //await pyodide.globals.set("fname11","tmp.cif");
+   	    let pymol_filename1="align1.cif"
+      	    let pymol_filename2="align2.cif"
+	    let pymol_filename3="align3.pml"a
 	    await pyodide.FS.writeFile(pymol_filename1, data1);
 	    await pyodide.globals.set("fname1",pymol_filename1);
 	    await pyodide.FS.writeFile(pymol_filename2, data2);
