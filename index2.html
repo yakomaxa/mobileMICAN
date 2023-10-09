@@ -860,7 +860,7 @@
 	    //cv.addEventListener('dblclick', onDoubleClick);
 	    document.addEventListener('keydown', onKeyDown);
 	    document.addEventListener('keyup', onKeyUp);
-	    document.addEventListener("wheel", (event) => {
+	    cv.addEventListener("wheel", (event) => {
 	    if (event.wheelDeltaY < 0) {
 				    onWheelRollUp(event);
 				    } else if (event.wheelDeltaY > 0) {
