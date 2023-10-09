@@ -486,6 +486,7 @@
 	   await pyodide.runPythonAsync(`
 	    import pymol2 as p2
 	    _p = p2.PyMOL()
+	    _p.start()
 	    `)
 
 	    const myButton2 = document.getElementById('my-button2');
@@ -517,8 +518,6 @@
 	       return v(*a, **k)
 	      return wrapper
 
-
-	    _p.start()
 
 	    import pymol.util
 	    _p.util = SelfProxy(pymol.util, _p.cmd)
