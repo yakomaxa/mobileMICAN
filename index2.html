@@ -381,8 +381,7 @@
       let data3=""
       var pyodide = await loadPyodide();
       await pyodide.loadPackage("https://yakomaxa.github.io/mobileMICAN/MICAN-1.0-cp39-cp39-emscripten_3_1_31_wasm32.whl");
-      await pyodide.loadPackage("https://yakomaxa.github.io/PyMOL-Wasm/pymol-2.6.0a0-cp39-cp39-emscripten_3_1_46_wasm32.whl");
-      await loadingExecution();
+       await loadingExecution();
 
       async function main(pdb1,filename1,pdb2,filename2,mode) {
      
@@ -466,7 +465,9 @@
 	    const OriginX = parseInt(rect.left);
 	    const OriginY = parseInt(rect.top);
 	  </script>
-	  <script>
+	  <script type="module">
+	    var pyodide = await loadPyodide();
+	    await pyodide.loadPackage("https://yakomaxa.github.io/PyMOL-Wasm/pymol-2.6.0a0-cp39-cp39-emscripten_3_1_46_wasm32.whl");     
 	    const cv = document.getElementById("canvas");	
 	    let loaded = false;
 	    // Run PyMOL code
