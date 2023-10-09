@@ -431,8 +431,8 @@
 
 //      data1 = await pyodide.FS.readFile('/output_MODEL1.cif',{ encoding: 'utf8' });
 //      data2 = await pyodide.FS.readFile('/output_MODEL2.cif',{ encoding: 'utf8' });
-//      data3 = await pyodide.FS.readFile('/output.pml',{ encoding: 'utf8' });
-//      console.log(data3)
+      data3 = await pyodide.FS.readFile('/output.pml',{ encoding: 'utf8' });
+      console.log(data3)
      
       }
 
@@ -496,7 +496,7 @@
 	    setTimeout(async () => {
 	    try {
 
-	    console.log(data3)
+	    //console.log(data3)
 	    console.log("testing the path")
 	    await pyodide.FS.writeFile("tmp.cif", pdb1);
 	    await pyodide.globals.set("fname11","tmp.cif");
