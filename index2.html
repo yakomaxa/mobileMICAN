@@ -764,7 +764,7 @@
 	    }
 
 	    async function onWheelRollUp(event) {
-	    //await event.preventDefault();
+	    await event.preventDefault();
 	    var mouseX = event.clientX - OriginX;
 	    var mouseY = event.clientY - OriginY;
 	    await pyodide.globals.set("x",mouseX);
@@ -781,7 +781,7 @@
 	    }
 
 	    async function onWheelRollDown(event) {
-	    //await event.preventDefault();
+	    await event.preventDefault();
 	    var mouseX = event.clientX - OriginX;
 	    var mouseY = event.clientY - OriginY;
 	    await pyodide.globals.set("x",mouseX);
